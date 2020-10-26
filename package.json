@@ -10,9 +10,25 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "connected-react-router": "^6.8.0",
+    "i18next": "^19.8.3",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "nprogress": "^0.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-ga": "^3.2.0",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^6.9.6",
+    "react-i18next": "^11.7.3",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
@@ -20,7 +36,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "make:fc": "hygen fc new"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +56,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/nprogress": "^0.2.0",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/redux-mock-store": "^1.0.2",
+    "@types/redux-thunk": "^2.1.0",
+    "hygen": "^6.0.4",
+    "mutationobserver-shim": "^0.3.7",
+    "node-sass": "^4.14.1",
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.4",
+    "ts-jest": "^26.4.2"
   }
 }
