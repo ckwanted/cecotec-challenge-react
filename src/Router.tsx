@@ -23,7 +23,7 @@ import {
 import { AuthenticatedRoute } from "./guards";
 
 // MARK: - Routes
-export default () => {
+const Router = (): JSX.Element => {
     return(
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
@@ -52,3 +52,5 @@ export default () => {
         </Provider>
     );
 }
+
+export default Router;
