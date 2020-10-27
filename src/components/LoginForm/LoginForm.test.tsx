@@ -85,16 +85,14 @@ describe("LoginForm Component", () => {
         );
 
         const email: string = "develop";
-        const password: string = "password";
 
         userEvent.type(getByTestId("email"), email);
-        userEvent.type(getByTestId("password"), password);
 
         await act(async () => {
             fireEvent.click(getByTestId("submit"));
         });
 
-        getByText(i18n.t('invalid_email_address'));
+        getByText(i18n.t('field_required'));
 
     });
 
