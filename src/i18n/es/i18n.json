@@ -2,6 +2,7 @@
     "Email": "Email",
     "Password": "Contraseña",
     "Login": "Acceder",
+    "Logout": "Desconectarse",
     "Users": "Usuarios",
     "Products": "Products",
     "field_required": "Campo requerido",

@@ -71,6 +71,15 @@ $dashboard-separatorY: 20px;
             
         }
 
+        &-items {
+            display: none;
+            margin-left: auto;
+
+            @include tablet {
+                display: block;
+            }
+        }
+
     }
 
     &__main {
@@ -114,4 +123,11 @@ $dashboard-separatorY: 20px;
         }
     }
 
+}
+
+.dropdown-menu.show.header-dropdown {
+    transform: inherit !important;
+    left: inherit !important;
+    right: 0;
+    top: 50px !important;
 }

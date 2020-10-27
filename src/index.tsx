@@ -6,7 +6,8 @@ import "./i18n";
 import ReactGA from "react-ga";
 import Router from "./Router";
 
-import './assets/scss/styles.scss';
+import "./assets/scss/styles.scss";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_ANALYTICS}`, {
     debug: process.env.NODE_ENV !== "production",

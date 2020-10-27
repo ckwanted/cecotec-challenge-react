@@ -2,6 +2,7 @@
     "Email": "Email",
     "Password": "Password",
     "Login": "Login",
+    "Logout": "Logout",
     "Users": "Users",
     "Products": "Products",
     "field_required": "Field required",
