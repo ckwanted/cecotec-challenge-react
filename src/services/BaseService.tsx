@@ -92,7 +92,7 @@ export default class BaseService {
                 case 403:
                 case 404:
                 case 422:
-                    this.showErrorToast(error.response ?? "");
+                    this.showErrorToast(error);
                     break;
                 default:
                     break;
@@ -104,7 +104,13 @@ export default class BaseService {
 
     }
 
-    private showErrorToast(message: string) {
+    private showErrorToast(error: any) {
+
+        let message: string = "";
+        let data = error.response.data;
+
+        if(typeof data === "string") message = data;
+
         iziToast.error({
             title: '',
             message,
