@@ -15,12 +15,12 @@ const Login: React.FC<LoginProps> = (props: LoginProps): JSX.Element => {
     }
 
     return(
-        <div>
+        <>
             <LoginForm
                 onSubmit={_handleOnSubmit}
                 btnLoading={isLoading}
             />
-        </div>
+        </>
     );
 
 };

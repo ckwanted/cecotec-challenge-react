@@ -2,6 +2,8 @@
     "Email": "Email",
     "Password": "Contraseña",
     "Login": "Acceder",
+    "Users": "Usuarios",
+    "Products": "Products",
     "field_required": "Campo requerido",
     "invalid_email_address": "Email incorrecto"
 }

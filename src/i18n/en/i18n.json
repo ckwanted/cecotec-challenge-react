@@ -2,6 +2,8 @@
     "Email": "Email",
     "Password": "Password",
     "Login": "Login",
+    "Users": "Users",
+    "Products": "Products",
     "field_required": "Field required",
     "invalid_email_address": "Invalid email address"
 }

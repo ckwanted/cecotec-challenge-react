@@ -12,6 +12,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import { PersistGate } from 'redux-persist/integration/react';
 import history from "./history";
 
+import { DashboardWrapper } from "./components";
+
 // MARK: - Pages
 import {
     PageWrapper,
@@ -46,7 +48,9 @@ const Router = (): JSX.Element => {
 
                         <PrivateRoute exact path="/dashboard/users">
                             <PageWrapper>
-                                <h1>users</h1>
+                                <DashboardWrapper>
+                                    
+                                </DashboardWrapper>
                             </PageWrapper>
                         </PrivateRoute>
                     
