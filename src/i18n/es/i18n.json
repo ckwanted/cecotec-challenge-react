@@ -1,3 +1,7 @@
 {
-    
+    "Email": "Email",
+    "Password": "Contraseña",
+    "Login": "Acceder",
+    "field_required": "Campo requerido",
+    "invalid_email_address": "Email incorrecto"
 }

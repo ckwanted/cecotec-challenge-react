@@ -1,12 +1,12 @@
 import React from "react";
 
-interface CactusLabelInputProps {
+interface LabelInputProps {
     labelTitle: string;
     inputAttributes: any;
     errorMessage?: string | null;
 }
 
-const LabelInput = (props: CactusLabelInputProps) => {
+const LabelInput = (props: LabelInputProps) => {
 
     const _showErrors = () => {
 

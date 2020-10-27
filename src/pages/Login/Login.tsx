@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-// import * as actionCreator from "../../actions";
+import * as actionCreator from "../../actions";
 import LoginForm, { LoginInputs } from "../../components/LoginForm/LoginForm";
 
 interface LoginProps {};
@@ -11,7 +11,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps): JSX.Element => {
     const { isLoading } = useSelector((store: any) => store.authReducer);
 
     const _handleOnSubmit = (data: LoginInputs) => {
-        // dispath( actionCreator.authLogin(data.email, data.password) );
+        dispath( actionCreator.authLogin(data.email, data.password) );
     }
 
     return(

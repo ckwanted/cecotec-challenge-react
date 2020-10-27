@@ -14,6 +14,7 @@ $container-max-widths: (
 );
 
 @import '~bootstrap/scss/bootstrap';
+@import '~argon-design-system-free/assets/css/argon-design-system.min';
 @import "~nprogress/nprogress.css";
 
 @import './medias';
