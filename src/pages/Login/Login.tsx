@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import * as actionCreator from "../../actions";
+import LoginForm, { LoginInputs } from "../../components/LoginForm/LoginForm";
 
 interface LoginProps {};
 
 const Login: React.FC<LoginProps> = (props: LoginProps): JSX.Element => {
 
-    const [t] = useTranslation();
+    const dispath = useDispatch();
+    const { isLoading } = useSelector((store: any) => store.authReducer);
+
+    const _handleOnSubmit = (data: LoginInputs) => {
+        dispath( actionCreator.authLogin(data.email, data.password) );
+    }
 
     return(
         <div>
-            Login
+            <LoginForm
+                onSubmit={_handleOnSubmit}
+                btnLoading={isLoading}
+            />
         </div>
     );
 

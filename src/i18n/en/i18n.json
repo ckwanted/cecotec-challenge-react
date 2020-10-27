@@ -1,3 +1,7 @@
 {
-    
+    "Email": "Email",
+    "Password": "Password",
+    "Login": "Login",
+    "field_required": "Field required",
+    "invalid_email_address": "Invalid email address"
 }

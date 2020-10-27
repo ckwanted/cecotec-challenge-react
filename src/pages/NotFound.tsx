@@ -18,7 +18,7 @@ const NotFound = (): JSX.Element => {
                     {t("not_found")}    
                 </div>
                 <button 
-                    className="btn btn-cactus-lg mt-3"
+                    className="btn mt-3"
                     onClick={() => history.goBack() }
                 >
                     {t("go_back")}

@@ -20,10 +20,10 @@ import {
 } from "./pages";
 
 // MARK: - Guards
-import { AuthenticatedRoute } from "./guards";
+import { AuthenticatedRoute, PrivateRoute } from "./guards";
 
 // MARK: - Routes
-export default () => {
+const Router = (): JSX.Element => {
     return(
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
@@ -39,6 +39,16 @@ export default () => {
                                 <Login />
                             </PageWrapper>
                         </AuthenticatedRoute>
+
+                        <PrivateRoute exact path="/dashboard">
+                            <Redirect to="/dashboard/users" />
+                        </PrivateRoute>
+
+                        <PrivateRoute exact path="/dashboard/users">
+                            <PageWrapper>
+                                <h1>users</h1>
+                            </PageWrapper>
+                        </PrivateRoute>
                     
                         <Route path="*">
                             <PageWrapper>
@@ -52,3 +62,5 @@ export default () => {
         </Provider>
     );
 }
+
+export default Router;

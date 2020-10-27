@@ -3,18 +3,17 @@ import {
     Route,
     Redirect,
 } from "react-router-dom";
-import { store } from '../store';
+import { isAuthenticated } from '../models/User';
 
-export default (props: any): JSX.Element => {
+const PrivateRoute = (props: any): JSX.Element => {
 
     const {children, ...rest} = props;
-    const { authReducer: { token } } = store.getState();
 
     return (
         <Route
             {...rest}
             render={({ location }) =>
-                token ? (
+                isAuthenticated() ? (
                     children
                 ) : (
                     <Redirect
@@ -29,3 +28,5 @@ export default (props: any): JSX.Element => {
     );
 
 }
+
+export default PrivateRoute;
