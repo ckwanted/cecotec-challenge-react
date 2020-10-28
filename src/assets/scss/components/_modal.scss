@@ -1,0 +1,29 @@
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: all .3s ease-in-out;
+
+    &--after-open {
+        opacity: 1;
+
+        > * {
+            animation-name: modalTranslate;
+            animation-duration: .3s;
+        }
+    }
+
+    &--before-close {
+        opacity: 0;
+    }
+
+}
+
+@keyframes modalTranslate {
+    from { transform: translate(-50%, -40%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+
+.ReactModal__Content.ReactModal__Content--after-open {
+    border-radius: 10px !important;
+    padding: 0 !important;
+}

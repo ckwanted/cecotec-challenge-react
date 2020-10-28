@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DashboardTitle } from "../../components";
+import { DashboardTitle, Modal } from "../../components";
+import EditUser, { EditUserInputs } from "../../components/User/EditUser";
 import { useSelector, useDispatch } from 'react-redux';
 import * as actionCreator from "../../actions";
 import UserModel, { getAvatarUrl } from "../../models/User";
@@ -12,6 +13,7 @@ interface UserProps {};
 const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
 
     const [t] = useTranslation();
+    const [selectUser, setSelectUser] = useState<UserModel | null>(null);
     const userReducer = useSelector( (store: any) => store.userReducer );
     const dispath = useDispatch<any>();
 
@@ -50,7 +52,7 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
                         icon={faEdit}
                         className="cursor-pointer"
                         onClick={(e) => {
-                            
+                            setSelectUser(user);
                         }}
                     />
                     <FontAwesomeIcon 
@@ -75,6 +77,27 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
         <>
             <DashboardTitle title={t('Users')} />
             {_renderUsers()}
+
+            <Modal 
+                show={selectUser != null}
+                title={t('Edit User')}
+                removeVerticalSpacing={false}
+                onClose={() => setSelectUser(null)}
+                width="50vw"
+            >
+                <EditUser
+                    user={selectUser}
+                    onSubmit={(data: EditUserInputs) => {
+                        let updateUser: UserModel = {
+                            ...selectUser!,
+                            ...data,
+                        }
+                        dispath( actionCreator.updateUser(updateUser) );
+                        setSelectUser(null);
+                    }}
+                />
+            </Modal>
+
         </>
     );
 

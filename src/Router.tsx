@@ -54,6 +54,13 @@ const Router = (): JSX.Element => {
                                 </DashboardWrapper>
                             </PageWrapper>
                         </PrivateRoute>
+
+                        <PrivateRoute exact path="/dashboard/products">
+                            <PageWrapper>
+                                <DashboardWrapper>
+                                </DashboardWrapper>
+                            </PageWrapper>
+                        </PrivateRoute>
                     
                         <Route path="*">
                             <PageWrapper>

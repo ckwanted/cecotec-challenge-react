@@ -1,9 +1,12 @@
 {
+    "Name": "Name",
     "Email": "Email",
     "Password": "Password",
     "Login": "Login",
     "Logout": "Logout",
+    "Edit": "Edit",
     "Users": "Users",
+    "Edit User": "Edit User",
     "Products": "Products",
     "field_required": "Field required",
     "invalid_email_address": "Invalid email address",

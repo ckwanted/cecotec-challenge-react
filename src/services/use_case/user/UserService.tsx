@@ -8,6 +8,12 @@ export default class UserService extends BaseService {
         return this.axios.get(`/users`, this.getCancelTokenStructure());
     }
 
+    update(user: User): Promise<AxiosResponse<User>> {
+        return this.axios.put(`/users/${user.id}`, {
+            ...user
+        });
+    }
+
     delete(user: User): Promise<AxiosResponse<{}>> {
         return this.axios.delete(`/users/${user.id}`);
     }

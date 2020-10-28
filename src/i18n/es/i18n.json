@@ -1,9 +1,12 @@
 {
+    "Name": "Nombre",
     "Email": "Email",
     "Password": "Contraseña",
     "Login": "Acceder",
     "Logout": "Desconectarse",
+    "Edit": "Editar",
     "Users": "Usuarios",
+    "Edit User": "Editar Usuario",
     "Products": "Products",
     "field_required": "Campo requerido",
     "invalid_email_address": "Email incorrecto",

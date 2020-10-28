@@ -21,17 +21,6 @@ $container-max-widths: (
 @import './generic';
 @import './medias';
 @import './components/nprogress';
+@import './components/form';
 @import './components/dashboard';
-
-.avatar {
-    width: 38px;
-    height: 38px;
-    object-fit: cover;
-    max-width: 100%;
-    border-radius: 50%;
-    display: inline-flex;
-}
-
-.cursor-pointer{
-    cursor: pointer;
-}
+@import './components/modal';
