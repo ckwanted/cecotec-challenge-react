@@ -1,9 +1,9 @@
 $dashboard-header-height: 50px;
-$dashboard-nav-bg: #172b4d;
+$dashboard-nav-bg: color(blue-medium);
 $dashboard-separatorY: 20px;
 
 .dashboard {
-    min-height: 100vh;
+    height: 100vh;
     display: grid;
     grid-template-areas: "header"
                          "main";
@@ -84,6 +84,7 @@ $dashboard-separatorY: 20px;
 
     &__main {
         grid-area: main;
+        overflow: auto;
     }
 
     &__logo-wrapper {
@@ -98,7 +99,7 @@ $dashboard-separatorY: 20px;
 
     &__separatorY {
         @include tablet {
-            margin-top: $dashboard-separatorY;
+            padding: $dashboard-separatorY 0;
         }
     }
 
@@ -123,11 +124,4 @@ $dashboard-separatorY: 20px;
         }
     }
 
-}
-
-.dropdown-menu.show.header-dropdown {
-    transform: inherit !important;
-    left: inherit !important;
-    right: 0;
-    top: 50px !important;
 }

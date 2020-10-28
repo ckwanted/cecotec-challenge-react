@@ -6,5 +6,7 @@
     "Users": "Users",
     "Products": "Products",
     "field_required": "Field required",
-    "invalid_email_address": "Invalid email address"
+    "invalid_email_address": "Invalid email address",
+    "confirm_delete_resource": "Are you sure you want to remove this resource?",
+    "go_back": "Go back"
 }

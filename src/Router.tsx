@@ -19,6 +19,7 @@ import {
     PageWrapper,
     Login,
     NotFound,
+    User,
 } from "./pages";
 
 // MARK: - Guards
@@ -49,7 +50,7 @@ const Router = (): JSX.Element => {
                         <PrivateRoute exact path="/dashboard/users">
                             <PageWrapper>
                                 <DashboardWrapper>
-                                    
+                                    <User />
                                 </DashboardWrapper>
                             </PageWrapper>
                         </PrivateRoute>

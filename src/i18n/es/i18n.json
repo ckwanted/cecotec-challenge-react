@@ -6,5 +6,7 @@
     "Users": "Usuarios",
     "Products": "Products",
     "field_required": "Campo requerido",
-    "invalid_email_address": "Email incorrecto"
+    "invalid_email_address": "Email incorrecto",
+    "confirm_delete_resource": "¿Estás seguro de que quieres eliminar este recurso?",
+    "go_back": "Volver"
 }

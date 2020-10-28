@@ -4,6 +4,7 @@ export default interface User {
     id: number;
     name: string;
     email: string;
+    avatar: string | null;
 };
 
 export function isAuthenticated(): boolean {
@@ -12,4 +13,8 @@ export function isAuthenticated(): boolean {
 
     return token !== null;
 
+}
+
+export function getAvatarUrl(user: User | null): string {
+    return user?.avatar ?? "/img/avatar.svg";
 }

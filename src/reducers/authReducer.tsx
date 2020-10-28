@@ -15,7 +15,7 @@ const INITIAL_STATE: AuthReducerState = {
     isLoading: false,
 }
 
-export default (state: any = INITIAL_STATE, action: Action<any>) => {
+const reducer = (state: any = INITIAL_STATE, action: Action<any>) => {
     switch(action.type) {
 
         case actionTypes.AUTH_LOGIN:
@@ -27,6 +27,7 @@ export default (state: any = INITIAL_STATE, action: Action<any>) => {
                     id: 0,
                     name: "admin",
                     email: "develop@cecotec.com",
+                    avatar: "http://placeimg.com/640/480",
                 },
                 token: loginPayload.accessToken,
                 isLoading: false,
@@ -48,3 +49,5 @@ export default (state: any = INITIAL_STATE, action: Action<any>) => {
      
     }
 }
+
+export default reducer;

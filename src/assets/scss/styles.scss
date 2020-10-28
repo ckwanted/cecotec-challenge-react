@@ -14,10 +14,24 @@ $container-max-widths: (
 );
 
 @import '~bootstrap/scss/bootstrap';
-@import '~argon-design-system-free/assets/css/argon-design-system.min';
 @import "~nprogress/nprogress.css";
 @import '~izitoast/dist/css/iziToast.min.css';
 
+@import './colors';
+@import './generic';
 @import './medias';
 @import './components/nprogress';
 @import './components/dashboard';
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 50%;
+    display: inline-flex;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

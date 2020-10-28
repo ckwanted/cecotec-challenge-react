@@ -2,6 +2,7 @@ import { combineReducers, Reducer } from "redux";
 import { connectRouter } from "connected-react-router";
 import history from "../history";
 import authReducer from "./authReducer";
+import userReducer from "./userReducer";
 
 /*
  * REDUX PERSIST
@@ -28,6 +29,7 @@ const persistedAuthReducer: Reducer<ConfigType, authReducerType> = persistReduce
 const rootReducer = combineReducers({
     router: connectRouter(history),
     authReducer: persistedAuthReducer,
+    userReducer,
 });
 
 const rootPersistConfig: ConfigType = {
@@ -36,6 +38,7 @@ const rootPersistConfig: ConfigType = {
     blacklist: [ // "reducers" that you don't want to persist
         "router",
         "authReducer",
+        "userReducer",
     ],
 }
 
