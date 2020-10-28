@@ -3,6 +3,7 @@ import { connectRouter } from "connected-react-router";
 import history from "../history";
 import authReducer from "./authReducer";
 import userReducer from "./userReducer";
+import dashboardReducer from "./dashboardReducer";
 
 /*
  * REDUX PERSIST
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
     router: connectRouter(history),
     authReducer: persistedAuthReducer,
     userReducer,
+    dashboardReducer,
 });
 
 const rootPersistConfig: ConfigType = {
@@ -39,6 +41,7 @@ const rootPersistConfig: ConfigType = {
         "router",
         "authReducer",
         "userReducer",
+        "dashboardReducer",
     ],
 }
 

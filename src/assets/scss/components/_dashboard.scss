@@ -26,7 +26,7 @@ $dashboard-separatorY: 20px;
         position: fixed;
         top: $dashboard-header-height;
         left: 0;
-        right: 0;
+        right: 100px;
         bottom: 0;
         z-index: 999;
         background-color: $dashboard-nav-bg;
@@ -35,6 +35,9 @@ $dashboard-separatorY: 20px;
 
         &--open {
             transform: translateX(0);
+            @include tablet {
+                right: 0;
+            }
         }
 
         @include tablet {
@@ -96,6 +99,7 @@ $dashboard-separatorY: 20px;
     }
 
     &__hamburger-menu {
+        cursor: pointer;
         margin-right: auto;
         @include tablet {
             display: none;

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from 'react-i18next';
 import User, { getAvatarUrl } from "../../models/User";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import * as actionCreator from "../../actions";
 import _ from "lodash";
 import HamburgerMenu from "react-hamburger-menu";
 
@@ -10,7 +11,8 @@ interface DashboardHeaderProps {};
 const DashboardHeader: React.FC<DashboardHeaderProps> = (props: DashboardHeaderProps): JSX.Element => {
 
     const [t] = useTranslation();
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const { isOpenNav } = useSelector((store: any) => store.dashboardReducer);
+    const dispath = useDispatch();
     const authReducer = useSelector((store: any) => store.authReducer);
     const user: User | null = authReducer?.user;
 
@@ -39,10 +41,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = (props: DashboardHeaderP
         <header className="dashboard__header container-fluid">
             <div className="dashboard__hamburger-menu">
                 <HamburgerMenu
-                    isOpen={isOpen}
+                    isOpen={isOpenNav}
                     menuClicked={() => {
-                        setIsOpen(!isOpen);
-                        document.querySelector(".dashboard__nav")?.classList.toggle("dashboard__nav--open");
+                        dispath( actionCreator.dashboardToggleNav() );
                     }}
                     width={18}
                     height={15}

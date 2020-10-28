@@ -6,3 +6,5 @@ export const USER_FETCH             = Symbol('USER_FETCH');
 export const USER_UPDATE            = Symbol('USER_UPDATE');
 export const USER_DELETE            = Symbol('USER_DELETE');
 export const USER_CHANGE_VALUE      = Symbol('USER_CHANGE_VALUE');
+
+export const DASHBOARD_TOGGLE_NAV   = Symbol('DASHBOARD_TOGGLE_NAV');
