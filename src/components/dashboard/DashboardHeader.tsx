@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import User, { getAvatarUrl } from "../../models/User";
 import { useSelector } from "react-redux";
 import _ from "lodash";
+import HamburgerMenu from "react-hamburger-menu";
 
 interface DashboardHeaderProps {};
 
@@ -34,12 +35,25 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = (props: DashboardHeaderP
     }
 
     return(
-        <header className="dashboard__header">
+        <header className="dashboard__header container-fluid">
+            <div className="dashboard__hamburger-menu">
+                <HamburgerMenu
+                    isOpen={false}
+                    menuClicked={() => {
+
+                    }}
+                    width={18}
+                    height={15}
+                    strokeWidth={1}
+                    rotate={0}
+                    color='black'
+                    borderRadius={0}
+                    animationDuration={0.5}
+                />
+            </div>
             <img className="dashboard__logo" src="/img/cecotec_logo.png" alt="cecotec logo"/>
             <div className="dashboard__header-items">
-                <div className="container-fluid">
-                    {_renderAvatar()}
-                </div>
+                {_renderAvatar()}
             </div>
         </header>
     );

@@ -72,9 +72,7 @@ $dashboard-separatorY: 20px;
         }
 
         &-items {
-            display: none;
             margin-left: auto;
-
             @include tablet {
                 display: block;
             }
@@ -94,6 +92,13 @@ $dashboard-separatorY: 20px;
             height: $dashboard-header-height;
             display: flex;
             align-items: center;
+        }
+    }
+
+    &__hamburger-menu {
+        margin-right: auto;
+        @include tablet {
+            display: none;
         }
     }
 

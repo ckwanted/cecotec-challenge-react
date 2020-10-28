@@ -47,7 +47,7 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
                         </div>
                     </div>
                 </div>
-                <div className="col-2 text-right">
+                <div className="col-2 pl-0 text-right">
                     <FontAwesomeIcon 
                         icon={faEdit}
                         className="cursor-pointer"
@@ -57,7 +57,7 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
                     />
                     <FontAwesomeIcon 
                         icon={faTrash}
-                        className="cursor-pointer ml-2"
+                        className="cursor-pointer ml-1"
                         onClick={(e) => _handleDelete(user)}
                     />
                 </div>
