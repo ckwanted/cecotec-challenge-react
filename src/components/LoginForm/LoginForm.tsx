@@ -28,7 +28,7 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps): JSX.Element
             <button 
                 data-testid="submit"
                 type="submit"
-                className="btn mt-2"
+                className="btn btn-sm btn-primary btn-block mt-2"
                 disabled={props.btnLoading ?? false}
             >
                 {t('Login')}

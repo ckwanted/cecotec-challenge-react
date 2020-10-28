@@ -15,12 +15,25 @@ const Login: React.FC<LoginProps> = (props: LoginProps): JSX.Element => {
     }
 
     return(
-        <>
-            <LoginForm
-                onSubmit={_handleOnSubmit}
-                btnLoading={isLoading}
-            />
-        </>
+        <div className="login">
+            <div className='login__box-center'>
+
+                <div className='login__box bg-gray-dark'>
+                    <div className="row">
+                    
+                        <div className="col-12 login__form">
+                            <img className="login__logo mb-4" src="/img/cecotec_logo.png" alt="cecotec" />
+                            <LoginForm
+                                onSubmit={_handleOnSubmit}
+                                btnLoading={isLoading}
+                            />
+                        </div>
+
+                    </div>  
+                </div>
+
+            </div>
+        </div>
     );
 
 };
