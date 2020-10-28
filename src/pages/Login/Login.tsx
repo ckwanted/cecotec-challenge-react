@@ -18,7 +18,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps): JSX.Element => {
         <div className="login">
             <div className='login__box-center'>
 
-                <div className='login__box bg-gray-dark'>
+                <div className='login__box'>
                     <div className="row">
                     
                         <div className="col-12 login__form">
