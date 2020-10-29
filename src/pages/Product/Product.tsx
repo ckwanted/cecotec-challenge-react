@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DashboardTitle, Modal } from '../../components';
+import { DashboardTitle, Modal, Loading } from '../../components';
 import ProductForm, { ProductFormInputs } from '../../components/Product/ProductForm';
 import ProductModel from "../../models/Product";
 import { useTranslation } from 'react-i18next';
@@ -56,7 +56,7 @@ const Product: React.FC<ProductProps> = (props: ProductProps): JSX.Element => {
     const [deleteProduct] = useMutation(DELETE_PRODUCT);
 
 
-    if(loading) return(<p>Loading...</p>);
+    if(loading) return(<Loading />);
 
     const _renderProducts = () => {
 

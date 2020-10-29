@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DashboardTitle, Modal } from "../../components";
+import { DashboardTitle, Modal, Loading } from "../../components";
 import UserForm, { UserFormInputs } from "../../components/User/UserForm";
 import { useSelector, useDispatch } from 'react-redux';
 import * as actionCreator from "../../actions";
@@ -21,7 +21,7 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
 
     useEffect(() => {
         dispath( actionCreator.fetchUsers() );
-    }, []);
+    }, [])
 
     const _handleDelete = (user: UserModel) => {
 
@@ -45,6 +45,12 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
     }
 
     const _renderUsers = () => {
+
+        if(userReducer.isLoading) return (
+            <div className="mt-3">
+                <Loading />
+            </div>
+        );
 
         const users: UserModel[] = userReducer.users.map((user: UserModel) => (
             <div key={user.id} className="row mt-3">
@@ -94,6 +100,7 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
                     setIsOpenCreateUser(true);
                 }}
             />
+
             {_renderUsers()}
 
             <Modal 

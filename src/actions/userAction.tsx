@@ -7,14 +7,14 @@ import User from "../models/User";
 /*
  * User
  */
-export const fetchUsers = () => {
+export const fetchUsers = (search: string = "") => {
 
     return async (dispatch: any) => {
 
         dispatch( userChangeValue('isLoading', true) );
 
         try {
-            let response: AxiosResponse<User[]> = await new UserService().fetch();
+            let response: AxiosResponse<User[]> = await new UserService().fetch(search);
             let loginResponse: User[] = response.data;
             dispatch( fetchUserResponse(loginResponse) );
         }

@@ -5,6 +5,7 @@ import DashboardTitle from "./dashboard/DashboardTitle";
 import Modal from "./Modal";
 import UserForm from "./User/UserForm";
 import ProductForm from "./Product/ProductForm";
+import Loading from "./Loading";
 
 export {
     LabelInput,
@@ -14,4 +15,5 @@ export {
     Modal,
     UserForm,
     ProductForm,
+    Loading,
 }

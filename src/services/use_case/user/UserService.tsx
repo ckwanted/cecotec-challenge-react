@@ -4,8 +4,8 @@ import User from "../../../models/User";
 
 export default class UserService extends BaseService {
 
-    fetch(): Promise<AxiosResponse<User[]>> {
-        return this.axios.get(`/users`, this.getCancelTokenStructure());
+    fetch(search: string = ""): Promise<AxiosResponse<User[]>> {
+        return this.axios.get(`/users?q=${search}`, this.getCancelTokenStructure());
     }
 
     create(user: User): Promise<AxiosResponse<User>> {

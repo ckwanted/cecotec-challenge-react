@@ -20,8 +20,8 @@ $container-max-widths: (
 
 @import "./override";
 @import "./colors";
-@import "./generic";
 @import "./medias";
+@import "./generic";
 @import "./components/nprogress";
 @import "./components/login";
 @import "./components/form";
