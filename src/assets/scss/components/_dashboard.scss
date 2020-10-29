@@ -119,11 +119,9 @@ $dashboard-separatorY: 20px;
             box-shadow: 0 0 5px rgba(black, .1);
             font-size: .8rem;
             opacity: 0;
-            transform: translateX(100vw);
             transition: all .3s ease-out;
 
             &--active {
-                transform: translateX(0);
                 opacity: 1;
             }
 
