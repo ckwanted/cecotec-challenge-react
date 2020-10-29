@@ -5,6 +5,10 @@ import {
     Redirect,
 } from "react-router-dom";
 
+// MARK: - Graphql
+import { ApolloProvider } from '@apollo/client';
+import GraphqlClient from "./GraphqlClient";
+
 // MARK: - Redux
 import { store, persistor } from './store';
 import { Provider } from 'react-redux';
@@ -20,6 +24,7 @@ import {
     Login,
     NotFound,
     User,
+    Product,
 } from "./pages";
 
 // MARK: - Guards
@@ -30,46 +35,51 @@ const Router = (): JSX.Element => {
     return(
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <ConnectedRouter history={history}>
-                    <Switch>
+                <ApolloProvider client={GraphqlClient}>
 
-                        <Route exact path="/">
-                            <Redirect to="/login" />
-                        </Route>
+                    <ConnectedRouter history={history}>
+                        <Switch>
 
-                        <AuthenticatedRoute exact path="/login">
-                            <PageWrapper>
-                                <Login />
-                            </PageWrapper>
-                        </AuthenticatedRoute>
+                            <Route exact path="/">
+                                <Redirect to="/login" />
+                            </Route>
 
-                        <PrivateRoute exact path="/dashboard">
-                            <Redirect to="/dashboard/users" />
-                        </PrivateRoute>
+                            <AuthenticatedRoute exact path="/login">
+                                <PageWrapper>
+                                    <Login />
+                                </PageWrapper>
+                            </AuthenticatedRoute>
 
-                        <PrivateRoute exact path="/dashboard/users">
-                            <PageWrapper>
-                                <DashboardWrapper>
-                                    <User />
-                                </DashboardWrapper>
-                            </PageWrapper>
-                        </PrivateRoute>
+                            <PrivateRoute exact path="/dashboard">
+                                <Redirect to="/dashboard/users" />
+                            </PrivateRoute>
 
-                        <PrivateRoute exact path="/dashboard/products">
-                            <PageWrapper>
-                                <DashboardWrapper>
-                                </DashboardWrapper>
-                            </PageWrapper>
-                        </PrivateRoute>
-                    
-                        <Route path="*">
-                            <PageWrapper>
-                                <NotFound />
-                            </PageWrapper>
-                        </Route>
+                            <PrivateRoute exact path="/dashboard/users">
+                                <PageWrapper>
+                                    <DashboardWrapper>
+                                        <User />
+                                    </DashboardWrapper>
+                                </PageWrapper>
+                            </PrivateRoute>
 
-                    </Switch>
-                </ConnectedRouter>
+                            <PrivateRoute exact path="/dashboard/products">
+                                <PageWrapper>
+                                    <DashboardWrapper>
+                                        <Product />
+                                    </DashboardWrapper>
+                                </PageWrapper>
+                            </PrivateRoute>
+                        
+                            <Route path="*">
+                                <PageWrapper>
+                                    <NotFound />
+                                </PageWrapper>
+                            </Route>
+
+                        </Switch>
+                    </ConnectedRouter>
+
+                </ApolloProvider>
             </PersistGate>
         </Provider>
     );

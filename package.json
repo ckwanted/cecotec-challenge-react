@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.2.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
@@ -16,6 +17,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "connected-react-router": "^6.8.0",
+    "graphql": "^15.4.0",
     "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.0.1",
     "izitoast": "^1.4.0",

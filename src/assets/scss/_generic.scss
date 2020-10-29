@@ -27,3 +27,27 @@ img {
 .cursor-pointer{
     cursor: pointer;
 }
+
+.same-height {
+    display: flex;
+    flex-wrap: wrap;
+
+    &--full {
+        > * {
+           width: 100%; 
+        }
+    }
+
+    > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

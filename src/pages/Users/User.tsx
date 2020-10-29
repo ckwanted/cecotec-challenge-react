@@ -57,7 +57,7 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
                     />
                     <FontAwesomeIcon 
                         icon={faTrash}
-                        className="cursor-pointer ml-1"
+                        className="cursor-pointer ml-1 text-danger"
                         onClick={(e) => _handleDelete(user)}
                     />
                 </div>
