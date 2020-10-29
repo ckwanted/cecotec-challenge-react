@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm/LoginForm";
 import DashboardWrapper from "./dashboard/DashboardWrapper";
 import DashboardTitle from "./dashboard/DashboardTitle";
 import Modal from "./Modal";
-import EditUser from "./User/EditUser";
+import UserForm from "./User/UserForm";
 import ProductForm from "./Product/ProductForm";
 
 export {
@@ -12,6 +12,6 @@ export {
     DashboardWrapper,
     DashboardTitle,
     Modal,
-    EditUser,
+    UserForm,
     ProductForm,
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DashboardTitle, Modal } from "../../components";
-import EditUser, { EditUserInputs } from "../../components/User/EditUser";
+import UserForm, { UserFormInputs } from "../../components/User/UserForm";
 import { useSelector, useDispatch } from 'react-redux';
 import * as actionCreator from "../../actions";
 import UserModel, { getAvatarUrl } from "../../models/User";
@@ -14,6 +14,7 @@ interface UserProps {};
 const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
 
     const [t] = useTranslation();
+    const [isOpenCreateUser, setIsOpenCreateUser] = useState<boolean>(false);
     const [selectUser, setSelectUser] = useState<UserModel | null>(null);
     const userReducer = useSelector( (store: any) => store.userReducer );
     const dispath = useDispatch<any>();
@@ -87,8 +88,34 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
 
     return(
         <>
-            <DashboardTitle title={t('Users')} />
+            <DashboardTitle 
+                title={t('Users')}
+                handleAddResource={() => {
+                    setIsOpenCreateUser(true);
+                }}
+            />
             {_renderUsers()}
+
+            <Modal 
+                show={isOpenCreateUser}
+                title={t('Create User')}
+                removeVerticalSpacing={false}
+                onClose={() => setIsOpenCreateUser(false)}
+                width="50vw"
+            >
+                <UserForm
+                    user={null}
+                    onSubmit={(data: UserFormInputs) => {
+                        let newUser: UserModel = {
+                            ...data,
+                            password: "password",
+                            avatar: "http://placeimg.com/640/480"
+                        }
+                        dispath( actionCreator.createUser(newUser) );
+                        setSelectUser(null);
+                    }}
+                />
+            </Modal>
 
             <Modal 
                 show={selectUser != null}
@@ -97,9 +124,9 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
                 onClose={() => setSelectUser(null)}
                 width="50vw"
             >
-                <EditUser
+                <UserForm
                     user={selectUser}
-                    onSubmit={(data: EditUserInputs) => {
+                    onSubmit={(data: UserFormInputs) => {
                         let updateUser: UserModel = {
                             ...selectUser!,
                             ...data,

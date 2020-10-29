@@ -33,6 +33,31 @@ export const fetchUserResponse = (payload: User[]): ActionType<User[]> => {
     }
 }
 
+export const createUser = (user: User) => {
+
+    return async (dispatch: any) => {
+
+        dispatch( userChangeValue('isLoading', true) );
+
+        try {
+            await new UserService().create(user);
+            dispatch( createUserResponse(user) );
+        }
+        catch(error) {
+            dispatch( userChangeValue('isLoading', false) );
+        }
+
+    };
+
+}
+
+const createUserResponse = (payload: User): ActionType<User> => {
+    return {
+        type: actionTypes.USER_CREATE,
+        payload,
+    }
+}
+
 export const updateUser = (user: User) => {
 
     return async (dispatch: any) => {

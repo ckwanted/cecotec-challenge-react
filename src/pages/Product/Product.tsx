@@ -160,7 +160,7 @@ const Product: React.FC<ProductProps> = (props: ProductProps): JSX.Element => {
                         let product: ProductModel = {
                             ...data,
                             id: _.uniqueId(),
-                            photo: "https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg"
+                            photo: "http://placeimg.com/640/480"
                         }
                         addProduct({ variables: product });
                         refetch();

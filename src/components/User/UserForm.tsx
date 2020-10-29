@@ -5,26 +5,26 @@ import { LabelInput } from "../../components";
 import { useFormValidatorEmail, useFormValidatorText } from "../../hooks";
 import User from '../../models/User';
 
-export type EditUserInputs = {
+export type UserFormInputs = {
     name: string;
     email: string;
 }
 
 interface EditUserProps {
     user: User | null;
-    onSubmit: (data: EditUserInputs) => void;
+    onSubmit: (data: UserFormInputs) => void;
 };
 
 const EditUser: React.FC<EditUserProps> = (props: EditUserProps): JSX.Element => {
 
     const [t] = useTranslation();
-    const { handleSubmit, register, errors, reset } = useForm<EditUserInputs>();
+    const { handleSubmit, register, errors, reset } = useForm<UserFormInputs>();
 
     useEffect(() => {
         if(props.user) reset(props.user);
     }, [props.user]);
 
-    const _handleOnSubmit = (data: EditUserInputs) => {
+    const _handleOnSubmit = (data: UserFormInputs) => {
         props.onSubmit(data);
     }
 
@@ -65,7 +65,7 @@ const EditUser: React.FC<EditUserProps> = (props: EditUserProps): JSX.Element =>
                     type="submit"
                     className="btn btn-sm btn-primary mt-2"
                 >
-                    {t('Edit')}
+                    {props.user ? t('Edit') : t('Create')}
                 </button>
             </div>
 

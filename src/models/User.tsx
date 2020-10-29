@@ -1,9 +1,10 @@
 import { store } from '../store';
 
 export default interface User {
-    id: number;
+    id?: number | null;
     name: string;
     email: string;
+    password?: string | null; // Should not be added to the model but is an api mock
     avatar: string | null;
 };
 
