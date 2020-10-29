@@ -49,7 +49,7 @@ const Product: React.FC<ProductProps> = (props: ProductProps): JSX.Element => {
     const [seletecProduct, setSeletecProduct] = useState<ProductModel | null>(null);
     const [isOpenCreateProduct, setIsOpenCreateProduct] = useState<boolean>(false);
     
-    const { loading, error, data, refetch } = useQuery(FETCH_PRODUCT);
+    const { loading, data, refetch } = useQuery(FETCH_PRODUCT);
     
     const [addProduct] = useMutation(CREATE_PRODUCT);
     const [updateProduct] = useMutation(UPDATE_PRODUCT);
@@ -79,34 +79,39 @@ const Product: React.FC<ProductProps> = (props: ProductProps): JSX.Element => {
             <div key={product.id} className="col-12 col-md-3 col-xl-2 same-height">
                 <div className="card mt-3 w-100">
                     <img className="card-img-top img-fluid" src={product.photo} alt={product.name} />
+                    <div className="d-flex justify-content-end">
+                        
+                    </div>
                     <div className="card-body">
-                        <h5 className="card-title">{product.name}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{product.price} €</h6>
-                        <p className="line-clamp">{product.description}</p>
-                        <div className="card-body">
-                            <a 
-                                href="#"
-                                className="card-link"
+                        
+                        <div className="card-body-info">
+                            <h5 className="card-title">{product.name}</h5>
+                            <h6 className="card-subtitle mb-2 text-muted">{product.price} €</h6>
+                            <p className="line-clamp m-0">{product.description}</p>
+                        </div>
+
+                        <div className="mt-3">
+                            <button 
+                                className="btn btn-sm btn-block btn-primary"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     setSeletecProduct(product);
                                 }}
                             >
                                 {t('Edit')}
-                            </a>
+                            </button>
                             
-                            <a 
-                                href="#"
-                                className="card-link text-danger"
+                            <button
+                                className="btn btn-sm btn-block btn-danger"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     _handleDelete(product);
                                 }}
                             >
                                 {t('Remove')}
-                            </a>
-                            
+                            </button>
                         </div>
+
                     </div>
                 </div>
             </div>

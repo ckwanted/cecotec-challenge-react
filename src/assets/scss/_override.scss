@@ -1,0 +1,18 @@
+.react-confirm-alert-overlay {
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    animation: react-confirm-alert-fadeIn .3s .2s forwards;
+}
+
+.react-confirm-alert-button-group > button:last-child {
+    background: #dc3545;
+}
+
+.card-body {
+    font-size: .8rem;
+    padding: 1.25rem 1rem .8rem 1rem;
+}
+
+.card-body-info {
+    min-height: 138px;
+}
