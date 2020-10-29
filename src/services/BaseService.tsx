@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import CancelRequestError from "./CancelRequestError";
 import TimeoutRequestError from "./TimeoutRequestError";
-import { Environment } from "./Environment";
+import { ApiRestEnvironment } from "./Environment";
 import iziToast from 'izitoast';
 
 import { store } from '../store';
@@ -20,7 +20,7 @@ export default class BaseService {
     constructor() {
 
         this.source = Axios.CancelToken.source();
-        this.baseURL = process.env.NODE_ENV === "production" ? Environment.production : Environment.develop;
+        this.baseURL = process.env.NODE_ENV === "production" ? ApiRestEnvironment.production : ApiRestEnvironment.develop;
 
         const { authReducer: { token } } = store.getState();
         this.token = token;
