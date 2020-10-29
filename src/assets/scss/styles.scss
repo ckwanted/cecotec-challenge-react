@@ -26,3 +26,12 @@ $container-max-widths: (
 @import "./components/form";
 @import "./components/dashboard";
 @import "./components/modal";
+
+.react-confirm-alert-overlay {
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.react-confirm-alert-button-group > button:last-child {
+    background: #dc3545;
+}
