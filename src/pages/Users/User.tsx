@@ -7,6 +7,7 @@ import * as actionCreator from "../../actions";
 import UserModel, { getAvatarUrl } from "../../models/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { confirmAlert } from 'react-confirm-alert';
 
 interface UserProps {};
 
@@ -22,12 +23,23 @@ const User: React.FC<UserProps> = (props: UserProps): JSX.Element => {
     }, []);
 
     const _handleDelete = (user: UserModel) => {
-        
-        let isConfirm = window.confirm(t('confirm_delete_resource'));
 
-        if(isConfirm) {
-            dispath( actionCreator.deleteUser(user) );
-        }
+        confirmAlert({
+            title: '',
+            message: t('confirm_delete_resource'),
+            buttons: [
+                {
+                    label: t('Cancel'),
+                    onClick: () => {}
+                },
+                {
+                    label: t('Remove'),
+                    onClick: () => {
+                        dispath( actionCreator.deleteUser(user) );
+                    }
+                }
+            ]
+        });
 
     }
 
