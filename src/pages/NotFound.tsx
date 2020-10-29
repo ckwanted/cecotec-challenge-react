@@ -9,16 +9,18 @@ const NotFound = (): JSX.Element => {
     let history = useHistory();
 
     return (
-        <div>
-            <div>
-                404
+        <div className="vh-100 d-flex justify-content-center align-items-center">
+
+            <div className="w-25">
+                <h1 className="text-center">404</h1>
+                <button 
+                    className="btn btn-primary btn-block mt-3"
+                    onClick={() => history.goBack() }
+                >
+                    {t("go_back")}
+                </button>
             </div>
-            <button 
-                className="btn mt-3"
-                onClick={() => history.goBack() }
-            >
-                {t("go_back")}
-            </button>
+
         </div>
     )
 }
