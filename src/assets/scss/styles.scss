@@ -13,15 +13,16 @@ $container-max-widths: (
     xl: 1220px
 );
 
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 @import "~nprogress/nprogress.css";
-@import '~izitoast/dist/css/iziToast.min.css';
+@import "~izitoast/dist/css/iziToast.min.css";
+@import "~react-confirm-alert/src/react-confirm-alert.css";
 
-@import './colors';
-@import './generic';
-@import './medias';
-@import './components/nprogress';
-@import './components/login';
-@import './components/form';
-@import './components/dashboard';
-@import './components/modal';
+@import "./colors";
+@import "./generic";
+@import "./medias";
+@import "./components/nprogress";
+@import "./components/login";
+@import "./components/form";
+@import "./components/dashboard";
+@import "./components/modal";

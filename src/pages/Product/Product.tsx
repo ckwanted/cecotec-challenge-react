@@ -3,6 +3,7 @@ import { DashboardTitle, Modal } from '../../components';
 import ProductForm, { ProductFormInputs } from '../../components/Product/ProductForm';
 import ProductModel from "../../models/Product";
 import { useTranslation } from 'react-i18next';
+import { confirmAlert } from 'react-confirm-alert';
 import { gql, useQuery, useMutation } from '@apollo/client';
 import _ from "lodash";
 
@@ -113,13 +114,24 @@ const Product: React.FC<ProductProps> = (props: ProductProps): JSX.Element => {
     }
 
     const _handleDelete = (product: ProductModel) => {
-        
-        let isConfirm = window.confirm(t('confirm_delete_resource'));
 
-        if(isConfirm) {
-            deleteProduct({ variables: { id: product.id } });
-            refetch();
-        }
+        confirmAlert({
+            title: '',
+            message: t('confirm_delete_resource'),
+            buttons: [
+                {
+                    label: t('Cancel'),
+                    onClick: () => {}
+                },
+                {
+                    label: t('Remove'),
+                    onClick: () => {
+                        deleteProduct({ variables: { id: product.id } });
+                        refetch();
+                    }
+                }
+            ]
+        });
 
     }
 
