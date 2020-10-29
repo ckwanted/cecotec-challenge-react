@@ -26,7 +26,7 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps): JSX.Element
     const _renderBtnSubmit = () => {
         return (
             <button 
-                data-testid="submit"
+                role="submit"
                 type="submit"
                 className="btn btn-sm btn-primary btn-block mt-2"
                 disabled={props.btnLoading ?? false}
@@ -45,7 +45,7 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps): JSX.Element
             <LabelInput
                 labelTitle={t('Email')}
                 inputAttributes={{
-                    "data-testid": "email",
+                    role: "email",
                     id: "email",
                     name: "email",
                     type:  "email",
@@ -60,7 +60,7 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps): JSX.Element
                 <LabelInput
                     labelTitle={t('Password')}
                     inputAttributes={{
-                        "data-testid": "password",
+                        role: "password",
                         id: "password",
                         name: "password",
                         type:  "password",

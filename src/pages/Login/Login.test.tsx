@@ -33,7 +33,7 @@ describe("Login Component", () => {
     afterEach(cleanup);
 
     async function dispathAuthLogin(email: string, password: string) {
-        const { getByTestId } = render(
+        const { getByRole } = render(
             <I18nextProvider i18n={i18n}>
                 <Provider store={store}>
                     <Login />
@@ -41,8 +41,8 @@ describe("Login Component", () => {
             </I18nextProvider>
         );
 
-        userEvent.type(getByTestId("email"), email);
-        userEvent.type(getByTestId("password"), password);
+        userEvent.type(getByRole("email"), email);
+        userEvent.type(getByRole("password"), password);
         
         await act(async () => {
             await store.dispatch<any>( actionCreator.authLogin(email, password) );

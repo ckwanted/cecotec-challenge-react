@@ -17,14 +17,14 @@ describe("LoginForm Component", () => {
 
     test("Not should be called the submit method", async () => {
         
-        const { getByTestId } = render(
+        const { getByRole } = render(
             <I18nextProvider i18n={i18n}>
                 <LoginForm onSubmit={mockSubmit} />
             </I18nextProvider>
         );
 
         await act(async () => {
-            fireEvent.click(getByTestId("submit"));
+            fireEvent.click(getByRole("submit"));
         });
 
         expect(mockSubmit).toHaveBeenCalledTimes(0);
@@ -33,7 +33,7 @@ describe("LoginForm Component", () => {
 
     test("Should be called the submit method", async () => {
         
-        const { getByTestId } = render(
+        const { getByRole } = render(
             <I18nextProvider i18n={i18n}>
                 <LoginForm onSubmit={mockSubmit} />
             </I18nextProvider>
@@ -42,11 +42,11 @@ describe("LoginForm Component", () => {
         const email: string = "develop@cecotec.com";
         const password: string = "password";
 
-        userEvent.type(getByTestId("email"), email);
-        userEvent.type(getByTestId("password"), password);
+        userEvent.type(getByRole("email"), email);
+        userEvent.type(getByRole("password"), password);
 
         await act(async () => {
-            fireEvent.click(getByTestId("submit"));
+            fireEvent.click(getByRole("submit"));
         });
 
         expect(mockSubmit).toHaveBeenCalled();
@@ -56,7 +56,7 @@ describe("LoginForm Component", () => {
 
     test("It should show a validation error in the field email", async () => {
         
-        const { getByTestId, getByText } = render(
+        const { getByRole, getByText } = render(
             <I18nextProvider i18n={i18n}>
                 <LoginForm onSubmit={mockSubmit} />
             </I18nextProvider>
@@ -65,11 +65,11 @@ describe("LoginForm Component", () => {
         const email: string = "develop";
         const password: string = "password";
 
-        userEvent.type(getByTestId("email"), email);
-        userEvent.type(getByTestId("password"), password);
+        userEvent.type(getByRole("email"), email);
+        userEvent.type(getByRole("password"), password);
 
         await act(async () => {
-            fireEvent.click(getByTestId("submit"));
+            fireEvent.click(getByRole("submit"));
         });
 
         getByText(i18n.t('invalid_email_address'));
@@ -78,7 +78,7 @@ describe("LoginForm Component", () => {
 
     test("It should show a validation error in the field password", async () => {
         
-        const { getByTestId, getByText } = render(
+        const { getByRole, getByText } = render(
             <I18nextProvider i18n={i18n}>
                 <LoginForm onSubmit={mockSubmit} />
             </I18nextProvider>
@@ -86,10 +86,10 @@ describe("LoginForm Component", () => {
 
         const email: string = "develop";
 
-        userEvent.type(getByTestId("email"), email);
+        userEvent.type(getByRole("email"), email);
 
         await act(async () => {
-            fireEvent.click(getByTestId("submit"));
+            fireEvent.click(getByRole("submit"));
         });
 
         getByText(i18n.t('field_required'));
