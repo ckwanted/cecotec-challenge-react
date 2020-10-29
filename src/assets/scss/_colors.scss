@@ -1,0 +1,18 @@
+$colors : (
+    white          : #ffffff,
+    black          : #000000,
+    blue-medium    : #172b4d,
+);
+
+@function color($col) {
+    @return map-get($colors, '#{$col}');
+}
+
+@each $key, $value in $colors {
+    .color-#{$key} {
+        color : $value !important;
+    }
+    .bg-#{$key} {
+        background-color : $value !important;
+    }
+}

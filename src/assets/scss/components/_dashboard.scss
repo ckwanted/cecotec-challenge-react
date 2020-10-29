@@ -1,0 +1,161 @@
+$dashboard-header-height: 50px;
+$dashboard-nav-bg: color(blue-medium);
+$dashboard-separatorY: 20px;
+
+.dashboard {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "header"
+                         "main";
+    grid-template-columns: 1fr;
+    grid-template-rows: $dashboard-header-height
+                        1fr;
+                        
+    @include tablet {
+        grid-template-areas: "nav header"
+	                         "nav main"
+                             "nav main";
+        grid-template-rows: $dashboard-header-height 
+                            1fr
+                            30px;
+        grid-template-columns: 200px 1fr;
+    }
+
+    &__nav {
+        grid-area: nav;
+        position: fixed;
+        top: $dashboard-header-height;
+        left: 0;
+        right: 100px;
+        bottom: 0;
+        z-index: 999;
+        background-color: $dashboard-nav-bg;
+        transition: all .3s ease;
+        transform: translateX(-100vw);
+
+        &--open {
+            transform: translateX(0);
+            @include tablet {
+                right: 0;
+            }
+        }
+
+        @include tablet {
+            position: static;
+            transform: translateX(0);
+        }
+
+        .dashboard__logo {
+            max-width: 100px;
+            margin: 0 auto;
+            display: none;
+            
+            @include tablet {
+                display: block;
+            }
+            
+        }
+    }
+
+    &__header {
+        grid-area: header;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 5px rgba(black, .1);
+
+        .dashboard__logo {
+            max-width: 100px;
+            margin: 0 auto;
+            display: block;
+            
+            @include tablet {
+                display: none;
+            }
+            
+        }
+
+        &-items {
+            margin-left: auto;
+            @include tablet {
+                display: block;
+            }
+        }
+
+    }
+
+    &__main {
+        grid-area: main;
+        overflow: auto;
+    }
+
+    &__logo-wrapper {
+        border-bottom: 1px solid rgba(black, .2);
+
+        @include tablet {
+            height: $dashboard-header-height;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__hamburger-menu {
+        cursor: pointer;
+        margin-right: auto;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__dropdown {
+        cursor: pointer;
+        position: relative;
+
+        &__items {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(black, .1);
+            font-size: .8rem;
+            opacity: 0;
+            transition: all .3s ease-out;
+            pointer-events: none;
+
+            &--active {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+        }
+
+    }
+
+    &__separatorY {
+        @include tablet {
+            padding: $dashboard-separatorY 0;
+        }
+    }
+
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    
+    &__link {
+        display: block;
+        padding: 1rem;
+        font-size: .9rem;
+        color: #999;
+        transition: all .3s ease;
+
+        &:hover, &.active {
+            color: white;
+        }
+    }
+
+}
